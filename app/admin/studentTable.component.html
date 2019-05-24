@@ -1,0 +1,33 @@
+<table class="table table-striped table-hover">
+        <thead>
+        <tr>
+       <th>Society Name</th> <th>Student Name</th><th>Student Id</th><th>Branch</th><th>Date Enrolled</th><th>No. of Events Conducted</th><th>No. of Events Attended</th><th>No. of Awards Won</th>
+        <th></th>
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngFor="let p of getStudents()">
+        <td>{{p.societyname}}</td>
+        <td>{{p.studentname}}</td>
+        <td>{{p.sid}}</td>
+        <td>{{p.branch}}</td>
+        <td>{{p.date}}</td>
+        <td>{{p.events}}</td>
+        <td>{{p.eventsa}}</td>
+        <td>{{p.awards}}</td>
+      
+        <td>
+        <button class="btn btn-sm btn-warning"
+        [routerLink]="['/admin/main/students/edit', p.sid]">
+        Edit
+        </button>
+        <button class="btn btn-sm btn-danger" (click)="deleteStudent(p.sid)">
+        Delete
+        </button>
+        </td>
+        </tr>
+        </tbody>
+        </table>
+        <button class="btn btn-primary" routerLink="/admin/main/students/create">
+        Create New Society Record
+        </button>

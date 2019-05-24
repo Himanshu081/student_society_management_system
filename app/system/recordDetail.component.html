@@ -1,0 +1,77 @@
+
+<div class="container-fluid">
+        <div class="row">
+        <div class="col bg-dark text-white">
+        <a class="navbar-brand">Student Society  Management System</a>
+        </div>
+        </div>
+        <div class="row">
+        <div class="col mt-2">
+        <h2 class="text-center">Student Details</h2>
+        <table class="table table-bordered table-striped p-2">
+        <thead>
+        <tr>
+        <th>Name</th>
+        <th>Student Id</th>
+        <th>Branch</th>
+        <th>Society Name</th>
+     
+        
+      
+        
+        </tr>
+        </thead>
+        <tbody>
+        <tr *ngIf="record.lines.length == 0">
+        <td colspan="11" class="text-center">
+        Your record is empty
+        </td>
+        </tr>
+        <tr *ngFor="let line of record.lines">
+        <!-- <td>
+        <input type="number" class="form-control-sm"
+        style="width:5em"
+        [value]="line.quantity"
+        (change)="record.updateQuantity(line.student,
+        $event.target.value)" />
+        </td> -->
+        <td>{{line.student.studentname}}</td>
+        <td>{{line.student.sid}}</td>
+        
+        <td>{{line.student.branch}}</td>
+        <td>{{line.student.societyname}}</td>
+      
+        
+       
+        <td class="text-center">
+            <button class="btn btn-sm btn-danger"
+(click)="record.removeLine(line.student.sid)">
+Cancel Membership
+</button>
+</td>
+</tr>
+</tbody>
+<tfoot>
+<!-- <tr>
+<td colspan="10" class="text-right">Total Records:</td>
+<td class="text-right">
+{{record.itemCount}}
+</td>
+</tr> -->
+</tfoot>
+</table>
+</div>
+</div>
+<div class="row">
+<div class="col">
+<div class="text-center">
+<button class="btn btn-primary m-1" routerLink="/store">
+Back To Homepage
+</button>
+<!-- <button class="btn btn-secondary m-1" routerLink="/save"
+[disabled]="record.lines.length == 0">
+Save
+</button> -->
+</div>
+</div>
+</div>

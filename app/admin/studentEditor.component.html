@@ -1,0 +1,70 @@
+<div class="bg-primary p-2 text-white" [class.bg-warning]="editing"
+[class.text-dark]="editing">
+<h5>{{editing ? "Edit" : "Create"}} Society</h5>
+</div>
+<form *ngIf="!newStudent" novalidate #form="ngForm" (ngSubmit)="save(form)">
+        <div class="form-group">
+        <label>Society Name</label>
+        <input class="form-control" #name="ngModel" type="text" name="name" [(ngModel)]="student.societyname" required />
+        <span *ngIf="added && name.invalid" class="text-danger">
+                Please Enter Society Name
+                </span>
+                </div>
+                <div class="form-group">
+                        <label>Student Name</label>
+                        <input class="form-control" #rollno="ngModel" type="text"name="studentname" [(ngModel)]="student.studentname" required />
+                        <span *ngIf="added && name.invalid" class="text-danger">
+                                Please Enter Student Name:
+                                </span>
+                        </div>
+<div class="form-group">
+        <label>Student Id</label>
+        <input class="form-control" type="number" #rollno="ngModel" name="rollno" [(ngModel)]="student.sid" required />
+        <span *ngIf="added && name.invalid" class="text-danger">
+                Please Enter Student Id:
+                </span>
+        </div>
+        <div class="form-group">
+                <label>Branch</label>
+                <input class="form-control" type="text" #rollno="ngModel" name="branch" [(ngModel)]="student.branch" required />
+                <span *ngIf="added && name.invalid" class="text-danger">
+                        Please Enter Student Branch:
+                        </span>
+                </div>
+        <div class="form-group">
+                <label>Date Enrolled</label>
+                <input class="form-control"type="date" #branch="ngModel" name="date" [(ngModel)]="student.date" required />
+                <span *ngIf="added && name.invalid" class="text-danger">
+                        Please Enter Date
+                        </span>
+                </div>
+        <div class="form-group">
+        <label>No. of Events Conducted</label>
+        <input class="form-control" type="number" #gender="ngModel" name="event" [(ngModel)]="student.events" required />
+        <span *ngIf="added && name.invalid" class="text-danger">
+                Please Enter No. of Events
+                </span>
+        </div>
+        <div class="form-group">
+                        <label>No. of Events Attended</label>
+                        <input class="form-control" type="number" #gender="ngModel" name="eventa" [(ngModel)]="student.eventsa" required />
+                        <span *ngIf="added && name.invalid" class="text-danger">
+                                Please Enter No. of Attended
+                                </span>
+                        </div>
+        <div class="form-group">
+                <label>No. of Awards Won</label>
+                <input class="form-control" type="number" #dob="ngModel" name="award" [(ngModel)]="student.awards" required />
+                <span *ngIf="added && name.invalid" class="text-danger">
+                        Please Enter No. of Awards 
+                        </span>
+                </div>
+                
+                                                                
+        <button type="submit" class="btn btn-primary" [class.btn-warning]="editing">
+        {{editing ? "Save" : "Create"}}
+        </button>
+        <button type="reset" class="btn btn-secondary" routerLink="/admin/main/students">
+        Cancel
+        </button>
+        </form>
